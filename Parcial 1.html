@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABM Vehiculos</title>
+    <style>
+    </style>
+</head>
+<body>
+  <form id="FormListado">
+    <fieldset style="width: 20cm; border-color: red;">
+      <legend style="font-size: 7mm; font-style: italic;"> Form Listado</legend>
+
+      <div class="Filtrado">
+        <label> Filtrar por: </label>
+
+        <select id="FiltrosCbo" name="Filtros">
+          <option id="Todos"> Todos</option>
+          <option id="Terrestres"> Terrestres </option>
+          <option id="Aereos"> Aereos </option>
+        </select>
+      </div>
+
+      <div class="Calculo">
+        <label> Velocidad Max Promedio: </label>
+        
+        <input readonly="text" size="12" id="ResultadoPromedio">
+        <input type="button" id="BotonCalculo" value="Calcular">
+      </div>
+
+      <div class="Caracteristicas" id="checks">
+        <br>
+        <label> Columnas: </label>
+        <br>
+        <input id=checkID type="checkbox" name="OpcionBusqueda"> ID
+        <input id=checkModelo type="checkbox" name="OpcionBusqueda"> Modelo
+        <input id=checkAnioFabricacion type="checkbox" name="OpcionBusqueda"> AnioFabricacion
+        <input id=checkVelMax type="checkbox" name="OpcionBusqueda"> Vel Max
+        <input id=checkCantPuertas type="checkbox" name="OpcionBusqueda"> Cant Puertas
+        <input id=checkCantRuedas type="checkbox" name="OpcionBusqueda"> Cant Ruedas
+        <input id=checkAltMax type="checkbox" name="OpcionBusqueda"> Alt Max
+        <input id=checkAutonomia type="checkbox" name="OpcionBusqueda"> Autonomia
+      </div>
+
+      <table id="tabla-datos" border="1">
+        <thead>
+          <tr>
+            <th id="columnaID"><button type="button"> ID </button></th>
+            <th id="columnaModelo"><button type="button"> Modelo </button></th>
+            <th id="columnaAnioFabricacion"><button type="button"> AnioFabricacion </button></th>
+            <th id="columnaVelMax"><button type="button"> Vel Max </button></th>
+            <th id="columnaCantPuertas"><button type="button"> Cant Puertas </button></th>
+            <th id="columnaCantRuedas"><button type="button"> Cant Ruedas </button></th>
+            <th id="columnaAltMax"><button type="button"> Alt Max </button></th>
+            <th id="columnaAutonomia"><button type="button"> Autonomia </button></th>
+          </tr>
+        </thead>
+        <tbody id ="salida-datos">
+        </tbody>
+      </table>
+      
+      <button id="Agregar" type="button"> Agregar </button>
+    </fieldset>
+  </form>
+
+  <form id="FormABM" style="display: none;">
+    <fieldset style="width: 13.5cm; border-color: blue;">
+      <legend style="font-size: 7mm; font-style: italic;"> Form ABM</legend>
+
+      <div class="CargaDatos">
+        <label> ID: </label>
+        <input readonly="number" id="idABM">
+        <br>
+
+        <label> Modelo: </label>
+        <input type="text" id="modeloABM">
+        <br>
+
+        <label> Anio Fabricacion: </label>
+        <input type="number" id="anioFabricacionABM">
+        <br>
+
+        <label> Velocidad Max: </label>
+        <input type="number" id="velMaxABM">
+        <br>
+
+        <label> Tipo: </label>
+        <select id="TiposVehiculoABM" name="TiposABM">
+          <option value="Neutro"> - </option>
+          <option value="Terrestre"> Terrestre </option>
+          <option value="Aereo"> Aereo </option>
+        </select>
+        <br>
+
+        <label id="lblCantPuertasABM" style="display: none;"> Cantidad de Puertas: </label>
+        <input id="cantPuertasABM" style="display: none;" type="number">
+        <br>
+        
+        <label id="lblCantRuedasABM" style="display: none;"> Cantidad de Ruedas: </label>
+        <input id="cantRuedasABM" style="display: none;" type="number">
+
+        <label id="lblAltMaxABM" style="display: none;"> Alt Max: </label>
+        <input id="altMaxABM" style="display: none;" type="number">
+        <br>
+        
+        <label id="lblAutonomiaABM" style="display: none;"> Autonomia: </label>
+        <input id="autonomiaABM" style="display: none;" type="number">
+      </div>
+
+      <button id="Crear" type="button" style="display: inline;"> Crear </button>
+      <button id="Modificar" type="button" style="display: none;"> Modificar </button> 
+      <button id="Eliminar" type="button"> Eliminar </button>
+      <button id="Cancelar" type="button"> Cancelar </button>
+    </fieldset>
+  </form>
+
+  <script src="Vehiculo.js"></script>
+</body>
+</html>
